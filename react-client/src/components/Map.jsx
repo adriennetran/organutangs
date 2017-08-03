@@ -23,7 +23,6 @@ class Map extends React.Component {
         defaultZoom={15}
         defaultCenter={this.props.center}>
         {markers.map((marker, index) => {
-            console.log('marker', marker);
             return(
               <Marker
                 key={index}
