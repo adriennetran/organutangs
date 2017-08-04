@@ -1,10 +1,16 @@
 //middleware
-var express = require('express'),
-  app = express(),
-  server = require('http').createServer(app),
-  io = require('socket.io').listen(server);
+// var express = require('express'),
+//   app = express(),
+//   server = require('http').createServer(app),
+//   io = require('socket.io').listen(server);
 
-server.listen(process.env.PORT || 3000);
+// server.listen(process.env.PORT || 3000);
+
+var express = require('express');
+var app = express();
+const server = app.listen(process.env.PORT || 3000, () => console.log(`Listening on 3000`));
+
+const io = socketIO(server);
 
 var db = require('../database-mongo/index');
 var bodyParser = require('body-parser');
