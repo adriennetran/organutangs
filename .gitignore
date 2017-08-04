@@ -2,7 +2,4 @@ node_modules
 .idea
 .idea/*
 .DS_Store
-config.js
-server/config.js
-react-client/dist/bundle.js
-
+/node_modules

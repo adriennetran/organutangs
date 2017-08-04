@@ -56,6 +56,6 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 //   console.log('Server listening on: http://localhost:%s', PORT);
 // });
 
-http.listen(3000, function(){
+http.listen(process.env.PORT || 3000, function(){
   console.log('socket listening on *:3000');
 });
