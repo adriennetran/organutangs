@@ -11,7 +11,7 @@ import LogoutButton from './components/LogoutButton.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 const io = require('socket.io-client');
-const socket = io('http://halfwaze.herokuapp.com/');
+const socket = io('http://halfwaze.herokuapp.com/', { transports: ['websocket'] });
 
 class App extends React.Component {
   constructor(props) {
