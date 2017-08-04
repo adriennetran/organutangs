@@ -33,6 +33,7 @@ class Login extends React.Component {
     .then((response) =>{
       console.log("responsefrom login ", response);
       this.props.setAuth(response.data[1]); //FUCK FUCK FUCK
+      console.log('* * * ** response.data', response.data);
       this.props.setuserId(response.data[0]);
     })
     .catch(function (error) {
