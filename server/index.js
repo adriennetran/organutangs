@@ -1,5 +1,11 @@
 //middleware
-var express = require('express');
+var express = require('express'),
+  app = express(),
+  server = require('http').createServer(app),
+  io = require('socket.io').listen(server);
+
+server.listen(process.env.PORT || 3000);
+
 var db = require('../database-mongo/index');
 var bodyParser = require('body-parser');
 var passport = require('passport');
@@ -7,11 +13,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var morgan = require('morgan');
 var expressValidator = require('express-validator');
 var session = require('express-session');
-var app = express();
 
 // Socket
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+// var http = require('http').Server(app);
+// var io = require('socket.io')(http);
+
 var socket = require('./sockets.js')(io);
 
 //Routes
@@ -56,6 +62,8 @@ app.use(express.static(__dirname + '/../react-client/dist'));
 //   console.log('Server listening on: http://localhost:%s', PORT);
 // });
 
-http.listen(process.env.PORT || 3000, function(){
-  console.log('socket listening on *:3000');
-});
+
+
+// http.listen(process.env.PORT || 3000, function(){
+//   console.log('socket listening on *:3000');
+// });
