@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Title from './Title.jsx';
 const io = require('socket.io-client');
-const socket = io();
+const socket = io(`http://halfwaze.herokuapp.com/`);
 import Autocomplete from 'react-google-autocomplete';
 
 class MeetUpForm extends React.Component {

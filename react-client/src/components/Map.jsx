@@ -1,7 +1,7 @@
 import React from "react";
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 const io = require('socket.io-client');
-const socket = io();
+const socket = io(`http://halfwaze.herokuapp.com/`);
 
 class Map extends React.Component {
   constructor(props){
