@@ -10,7 +10,7 @@ var express = require('express');
 var app = express();
 const server = app.listen(process.env.PORT || 3000, () => console.log(`Listening on 3000`));
 
-const io = require('socket.io')(server);
+const io = require('socket.io').listen(server);
 
 var db = require('../database-mongo/index');
 var bodyParser = require('body-parser');
