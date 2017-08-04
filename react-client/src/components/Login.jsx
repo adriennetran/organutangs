@@ -30,24 +30,26 @@ class Login extends React.Component {
       username: user,
       password: pw
     })
-    .then((response) =>{
-      console.log("responsefrom login ", response);
-      this.props.setAuth(response.data[1]); //FUCK FUCK FUCK
-      console.log('* * * ** response.data', response.data);
-      this.props.setuserId(response.data[0]);
-    })
-    .catch(function (error) {
-      console.log("error logging in ", error);
-    });
+      .then((response) =>{
+        console.log("responsefrom login ", response);
+        this.props.setAuth(response.data[1]);
+        this.props.setuserId(response.data[0]);
+      })
+      .catch(function (error) {
+        console.log("error logging in ", error);
+      });
   }
 
   render() {
     return (
-    <form onSubmit={(event)=>{this.loggingIn(event, this.state.userName, this.state.password)}}>
-      <input type="text" value={this.state.userName} onChange={this.handleChangeName}/>
-      <input type="text" value={this.state.password} onChange={this.handleChangePassword}/>
-      <input type="submit" value="Submit"/>
-    </form>
+      <form className="loginForm" onSubmit={(event)=>{this.loggingIn(event, this.state.userName, this.state.password)}}>
+        <h1>Login</h1>
+        Username
+        <input className="username" type="text" value={this.state.userName} onChange={this.handleChangeName}/>
+        Password
+        <input className="password" type="password" value={this.state.password} onChange={this.handleChangePassword}/>
+        <input className="submit" type="submit" value="Submit"/>
+      </form>
     );
   }
 }

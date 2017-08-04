@@ -81,6 +81,11 @@ img.listing-object {
     font-size: 14px;
 }
 
+h1{
+    font-weight: 300;
+    font-size: 25px;
+}
+
 .yelp-list-entry-name{
     font-weight: 300;
     color: #585858;
@@ -172,4 +177,23 @@ img.listing-object {
 .yelp-list-entry-address {
     padding-left: 5px;
     /*color: #c3c3c3;*/
+}
+
+/*Login*/
+
+.signInForms {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+form.loginForm {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+form.registerForm {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
 }
