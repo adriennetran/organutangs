@@ -1,7 +1,7 @@
 import React from "react";
 import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps';
 const io = require('socket.io-client');
-const socket = io(`http://halfwaze.herokuapp.com/`);
+// const socket = io('http://halfwaze.herokuapp.com/');
 
 class Map extends React.Component {
   constructor(props){
@@ -10,7 +10,7 @@ class Map extends React.Component {
   }
 
   componentDidMount() {
-    socket.on('user locations', (data) => {
+    this.props.socket.on('user locations', (data) => {
       this.setState({
         location1: data.location1,
         location2: data.location2

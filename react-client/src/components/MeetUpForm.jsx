@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Title from './Title.jsx';
 const io = require('socket.io-client');
-const socket = io(`http://halfwaze.herokuapp.com/`);
+// const socket = io('http://halfwaze.herokuapp.com/');
 import Autocomplete from 'react-google-autocomplete';
 
 class MeetUpForm extends React.Component {
@@ -22,7 +22,7 @@ class MeetUpForm extends React.Component {
   }
 
   componentDidMount() {
-    socket.on('match status', (data) => {
+    this.props.socket.on('match status', (data) => {
       this.setState({ status : data });
     });
   }
@@ -48,7 +48,7 @@ class MeetUpForm extends React.Component {
       console.log(1);
       // socket.emit('match status', 'Searching...');
       this.setState({ status : 'Searching...' });
-      socket.emit('match status', 'Searching...');
+      this.props.socket.emit('match status', 'Searching...');
       var userId = this.props.userId;
       var location1 = { "address" : this.state.userLocationAddress, "coordinates": [0,0] };
       var location2 = { "address": this.state.friendId, "coordinates": [0,0] };
@@ -88,7 +88,7 @@ class MeetUpForm extends React.Component {
       userLocation
     })
       .then(function (response) {
-        socket.emit('user looking for friend',
+        this.props.socket.emit('user looking for friend',
           {
             userId,
             friendId,

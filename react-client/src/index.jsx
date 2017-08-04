@@ -11,7 +11,7 @@ import LogoutButton from './components/LogoutButton.jsx';
 import Login from './components/Login.jsx';
 import Register from './components/Register.jsx';
 const io = require('socket.io-client');
-const socket = io(`http://halfwaze.herokuapp.com/`);
+const socket = io('http://halfwaze.herokuapp.com/');
 
 class App extends React.Component {
   constructor(props) {
@@ -71,7 +71,7 @@ class App extends React.Component {
         <div>
           <LogoutButton setuserId={this.setuserId} setAuth={this.setAuth}/>
           <Title />
-          <MeetUpForm userId={this.state.userId}/>
+          <MeetUpForm userId={this.state.userId} socket={socket} />
           <div className="resultsContainer">
             <div className= "mapBox" >
               <div className="subMapBox">
@@ -82,6 +82,7 @@ class App extends React.Component {
                   containerElement={<div style={{height:100+'%'}} />}
                   mapElement={<div style={{height:100+'%'}} />}
                   handleMarkerClick={this.handleMarkerClick.bind(this)}
+                  socket={ socket }
                 />
               </div>
             </div>
